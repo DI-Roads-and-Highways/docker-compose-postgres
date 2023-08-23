@@ -1,7 +1,7 @@
 ## Table of Contents
-1. [Prerequisites](#1-Prerequisites)
-1. [How to Use](#2-How-to-Use)
-1. [PostgreSQL Versions](#3-PostgreSQL-Versions)
+1. [Prerequisites](#1-prerequisites)
+1. [How to Use](#2-how-to-use)
+1. [PostgreSQL Versions](#3-postgresql-versions)
 
 ## 1. Prerequisites
 You will need to ensure that the following has been installed on the machine where the docker container is to be hosted:
