@@ -12,11 +12,17 @@ You will need to ensure that the following has been installed on the machine whe
 ## 2. How to Use
 Follow these steps to get the PostgreSQL docker container running with the help of this repository:
 1. Clone this repository to the machine.
-1. Edit the `env-template` file and enter the username and password to be used to create the primary super-user role for this PostgreSQL server (these credentials may never be stored in the public online repo!).
-1. Rename `env-template` to `.env`.
+1. Make a copy of the `env-template` file and call the copy `.env`.
+1. Edit the `.env` file and enter the username and password to be used to create the primary super-user role for this PostgreSQL server (these credentials may never be stored in the public online repo!).
 1. From a terminal with the working directory set to the location of these files, run `docker-compose up -d`.
     - You can also run this from a nother working directory if you specify the path the the `docker-compose.yml` file, please refer to the docker-compose documentation for how to do this.
 1. Once the server is up and running, you may confirm that you are able to connect, and then start using it (create additional roles, create and restore databases, etc.).
+
+If updates need to be made to the configuration in future, one should
+1. Run `docker-compose down` (again in the appropriate working directory as mentioned above) to stop the container.
+1. `git pull` the repo to update the configuration files.
+1. Check for changes (e.g. if `env-template` has changed, make sure the changes are propagated to `.env`).
+1. Run `docker-compose up -d` to start the container with the updated configuration.
 
 ## 3. PostgreSQL Versions
 This repository is currently to be used to start up a PostgreSQL 13 container. For now, this is the only version supported.
