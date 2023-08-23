@@ -1,0 +1,22 @@
+#docker-compose build
+version: '3'
+
+services:
+
+  db:
+    image: kartoza/postgis:13-3.1
+    shm_size: 1g # default is 64m, but large queries require more space than that
+    container_name: postgres13
+    volumes:
+      - $HOME/pgdir:/var/lib/postgresql
+      - ./extra.conf:/settings/extra.conf
+    environment:
+      - POSTGRES_USER=$POSTGRES_USERNAME
+      - POSTGRES_PASS=$POSTGRES_PASSWORD
+      # - ALLOW_IP_RANGE=0.0.0.0/0
+      - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting,pg_trgm,tablefunc,pgcrypto,citext,ogr_fdw,uuid_ossp
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    healthcheck:
+      test: "exit 0"

@@ -1,0 +1,2 @@
+POSTGRES_PASSWORD=your-role-password
+POSTGRES_USERNAME=your-role-name
